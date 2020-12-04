@@ -1,4 +1,7 @@
 # 프로젝트 명
+영화 박스오피스 어플
+
+# 프로젝트 설명
 오픈API를 이용해 영화 박스오피스를 시각화한 어플리케이션
 
 ## 프로젝트 구현 
@@ -8,6 +11,9 @@ RecyclerView과 cardView를 다운로드 하여 list형식으로 나열하고 ma
 그후 중복으로 LinearLayout 을 vertical 형식으로 나타내 오른쪽으로 두 개의 버튼을 차례로 나열했다. 
 
 
+### 중복 LinearLayout구현
+중복 레이아웃이라는 거창한 표현을 썼지만 실제로는 하나의  레이아웃 안에 레이아웃을 여러개 만드는 걸 말한다.
+프로젝트 안에서도 사용된 레이아웃은 총 5개로 중복 레이아웃을 통해서 수평 수직 배열의 형태로 지정할 수 있다. 
 
 
 ### TextView구현 
@@ -15,17 +21,18 @@ RecyclerView과 cardView를 다운로드 하여 list형식으로 나열하고 ma
 구현을 하기 위해서는 MovieAdapter.java 페이지에서 작성하며 findViewById(R.id.textview); 코드를 입력해 xml과 연결시켜줘야한다.
 
 
-
-
-
 ### Button 구현
 이 프로젝트에서의 버튼 두 개의 역할은 웹페이지 이동에 목적을 두고있다.
-button1은 kobis mobile 페이지로 , button2는 kobis mobile 최신상영작 페이지로 이동하는데
-button 구현하는 방법은 OnClick 했을 때 불러올 함수를 지정하는 것이다. button1의 OnClick의 함수는 B1 으로 지정하고 button2의 OnClick의 함수는 B2로 지정했다.
-그 후 MainActivity로 가서 button1의 OnClick의 함수인 B1을 호출하고 Intent 함수를 myIntent로 불러 아래와 같은 코드를 작성한다. button2도 같은 방법으로 작성 가능하다.( 단,  button2의 함수는 B2)
+button1은 kobis mobile 페이지로, button2는 kobis mobile 최신상영작 페이지로 이동하는데 button 구현하는 방법은 OnClick 했을 때 불러올 함수를 지정하는 것이다. button1의 OnClick의 함수는 B1 으로 지정하고 button2의 OnClick의 함수는 B2로 지정했다. 그 후 MainActivity로 가서 button1의 OnClick의 함수인 B1을 호출하고 Intent 함수를 myIntent로 불러 아래와 같은 코드를 작성한다. button2도 같은 방법으로 작성 가능하다.( 단,  button2의 함수는 B2)
 
 public void B1(View V)
 {
    Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("이동할 페이지의 url 입력"));
    startActivity(myIntent);
 }
+
+### imeageView 구현
+영화와 관련된 이미지가 어떤것이 있을까 고민하다가 영화하면 빠질 수없는 팝콘이 생각나, 무료 이미지제공 사이트에서 다운받아 res - drawavble에 팝콘이미지를 넣어준다. 그 후 이미지를 구현할 레이아웃인 movie_item 에서 ImageView를 추가하고 아래와 같은 코드를 작성한다.
+
+app:srcCompat="@drawable/이미지이름" 
+
