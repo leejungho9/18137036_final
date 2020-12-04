@@ -27,7 +27,7 @@ activity_main.xml RecyclerView를 화면에 끌어와 다운로드를 진행한�
 
 >1)android:textStyle="bold" 
 
-2)android:textColor="#E10B0B"
+>2)android:textColor="#E10B0B"
 
 영화순위와 영화제목은 1)과 같이 textStyle 중에 bold 로 선택해 글씨를 굵게 표현하였고 일별 관람객 수와 누적 관람객 수에는 2)와  textColor를 지정해 글씨를 붉은색으로 지정했다.
 
@@ -35,10 +35,9 @@ activity_main.xml RecyclerView를 화면에 끌어와 다운로드를 진행한�
 ### Button 구현
 
 >public void B1(View V)
-{
-   Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("이동할 페이지의 url 입력"));
-   startActivity(myIntent);
-}
+
+>{ Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("이동할 페이지의 url 입력"));
+   startActivity(myIntent);}
 
 이 프로젝트에서의 버튼 두 개의 역할은 웹페이지 이동에 목적을 두고있다.
 button1은 kobis mobile 페이지로, button2는 kobis mobile 최신상영작 페이지로 이동하는데 button 구현하는 방법은 OnClick 했을 때 불러올 함수를 지정하는 것이다. button1의 OnClick의 함수는 B1 으로 지정하고 button2의 OnClick의 함수는 B2로 지정했다. 그 후 MainActivity로 가서 button1의 OnClick의 함수인 B1을 호출하고 Intent 함수를 myIntent로 불러 위와 같은 코드를 작성한다. button2도 같은 방법으로 작성 가능하다.( 단,  button2의 함수는 B2)
