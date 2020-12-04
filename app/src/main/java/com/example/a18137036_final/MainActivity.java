@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         editText = findViewById(R.id.editText);
         textView = findViewById(R.id.textView);
         button1 = findViewById(R.id.button1);
+
         button2 = findViewById(R.id.button2);
 
 
