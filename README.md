@@ -26,9 +26,10 @@ activity_main.xml RecyclerView를 화면에 끌어와 다운로드를 진행한�
 ### TextView 꾸미기
 
 >1)android:textStyle="bold" 
+
 2)android:textColor="#E10B0B"
 
-영화순위와 영화제목은 1)과 같이 textStyle 중에 bold 로 선택해 글씨를 굵게 표현하였고 일별 관람객 수와 누적 관람객 수에는 2)는 textColor를 지정해 글씨를 붉은색으로 지정했다.
+영화순위와 영화제목은 1)과 같이 textStyle 중에 bold 로 선택해 글씨를 굵게 표현하였고 일별 관람객 수와 누적 관람객 수에는 2)와  textColor를 지정해 글씨를 붉은색으로 지정했다.
 
 
 ### Button 구현
