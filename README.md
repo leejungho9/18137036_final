@@ -4,17 +4,24 @@
 # 프로젝트 설명
 오픈API를 이용해 영화 박스오피스를 시각화한 어플리케이션
 
-## 프로젝트 구현 
+## 전체적인 프로젝트 구현 
 영화의 정보를 받아올 수 있는 JSON형식의 오픈API URL과 Key를 받아 웹서버에 요청한다.
-요청하기버튼을 클릭 시, 입력한 날짜에 맞춰 박스오피스순위와 정보를 불러온다. 
-RecyclerView과 cardView를 다운로드 하여 list형식으로 나열하고 margin 값을 주어 테두리가 띄어지며 그림자지게 만든다.
-그후 중복으로 LinearLayout 을 vertical 형식으로 나타내 오른쪽으로 두 개의 버튼을 차례로 나열했다. 
+요청하기버튼을 클릭 시, 입력한 날짜에 맞춰 박스오피스순위와 정보를 리싸이클러뷰에 표시된다.
+왼쪽에는 팝콘이미지 그 옆으로는 순위, 영화제목, 개봉일, 일별 관람객 수, 누적 관람객 수, 홈페이지바로가기 버튼, 최신 상영작 페이지를 볼 수 있는 버튼이 나타난다.
+
+### RecyclerView , caraView  구현
+activity_main.xml RecyclerView를 화면에 끌어와 다운로드를 진행한다.
++ caraView 도 같은 방법
+
+
+### MovieAdapter 구현
+리싸이클러뷰와 Movie 객체를 관리하기 위해 새로운 자바클래스인 MovieAdapter.java 를 만든다. 그 안에 ViewHolder 클래스를 정의한다. 각각의 아이템을 위한 뷰(ex TextView) 를  ViewHolder에 담아두게된다.
 
 
 ### 중복 LinearLayout구현
 중복 레이아웃이라는 거창한 표현을 썼지만 실제로는 하나의  레이아웃 안에 레이아웃을 여러개 만드는 걸 말한다.
 프로젝트 안에서도 사용된 레이아웃은 총 5개로 중복 레이아웃을 통해서 수평 수직 배열의 형태로 지정할 수 있다. 
-
+json 문자열로 받아
 
 ### TextView구현 
 프로젝트 안에 작성한 TextView는 총5가지다. TextView1는 영화 순위, TextView2는 영화제목, TextView3는 개봉일 , TextView4는 일별 관람객 수 TextView5는 누적 관람객 수를 보여주도록 만들었는데, 이는 RecyclerView 에서 상속을 받아 ViewHolder생성해 ViewHolder 각각의 데이터를 받아 TextView로 표시를 해주는 방식으로 진행했다.
