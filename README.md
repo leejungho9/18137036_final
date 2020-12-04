@@ -6,12 +6,11 @@ Daily Box Office TOP10
 
 ## 전체적인 프로젝트 구현 
 
-https://www.kobis.or.kr/kobisopenapi/homepg/apiservice/searchServiceInfo.do
 
-영화의 정보를 받 JSON형식의 오픈API URL과 Key를 받아 웹서버에 요청한다.
+영화의 정보를 가지고있는 JSON형식의 오픈API URL과 Key를 받아 웹서버에 요청한다.
+
+JSON형식의 데이터 
 <img width="1000" height="50" src="./Png/JSON1.png"></img>
-
-사이트에서 받은 URL 검색해보면 위 사진과 같은 JSON 형식으로 짜여져있음을 확인할 수 있다.
 요청하기버튼을 클릭 시, 입력한 날짜에 맞춰 박스오피스순위와 정보를 리싸이클러뷰에 표시된다.
 왼쪽에는 팝콘이미지 그 옆으로는 순위, 영화제목, 개봉일, 일별 관람객 수, 누적 관람객 수, 홈페이지바로가기 버튼, 최신 상영작 페이지를 볼 수 있는 버튼이 나타난다.
 
