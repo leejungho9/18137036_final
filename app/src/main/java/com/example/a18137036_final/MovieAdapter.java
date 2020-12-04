@@ -75,7 +75,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
         public void setItem(Movie item) {
             textView.setText(item.movieNm);
             textView2.setText(item.rank + " 위");
-            textView3.setText("개봉일" + item.openDt);
+            textView3.setText("개봉일 : " + item.openDt);
             textView4.setText("누적 관람객 수 : " + item.audiAcc + " 명");
             textView5.setText("일별 관람객 수 : " + item.audiAcc + " 명");
         }
