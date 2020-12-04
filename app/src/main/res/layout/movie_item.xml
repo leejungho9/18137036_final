@@ -11,9 +11,9 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="4dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginBottom="5dp"
         app:cardBackgroundColor="#FFFFFFFF"
-        app:cardCornerRadius="10dp"
+        app:cardCornerRadius="45dp"
         app:cardElevation="5dp" >
 
         <LinearLayout
@@ -65,7 +65,7 @@
                     android:id="@+id/textView3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="8dp"
                     android:text="개봉일"
                     android:textStyle="bold"
                     android:textSize="16sp"
@@ -111,7 +111,7 @@
 
                         <Button
                             android:id="@+id/button1"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:onClick="B1"
                             android:text="홈페이지\n바로가기"
@@ -119,7 +119,7 @@
 
                         <Button
                             android:id="@+id/button2"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="0"
                             android:onClick="B2"
