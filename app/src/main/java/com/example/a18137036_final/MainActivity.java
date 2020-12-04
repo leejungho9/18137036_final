@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 
@@ -29,6 +30,7 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity {
     EditText editText;
     TextView textView;
+    ImageButton imageButton;
     Button button1;
     Button button2;
 
@@ -45,14 +47,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         editText = findViewById(R.id.editText);
-        textView = findViewById(R.id.textView);
+        textView = findViewById(R.id.textView1);
         button1 = findViewById(R.id.button1);
-
         button2 = findViewById(R.id.button2);
 
 
-        Button button = findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
+        ImageButton imageButton = findViewById(R.id.imageButton);
+        imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 makeRequest();

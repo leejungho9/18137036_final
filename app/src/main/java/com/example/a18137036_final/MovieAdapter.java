@@ -54,7 +54,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView textView;
+        TextView textView1;
         TextView textView2;
         TextView textView3;
         TextView textView4;
@@ -64,7 +64,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
         public ViewHolder(View itemView) {
             super(itemView);
 
-            textView = itemView.findViewById(R.id.textView);
+            textView1 = itemView.findViewById(R.id.textView1);
             textView2 = itemView.findViewById(R.id.textView2);
             textView3 = itemView.findViewById(R.id.textView3);
             textView4 = itemView.findViewById(R.id.textView4);
@@ -73,13 +73,15 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
         }
 
         public void setItem(Movie item) {
-            textView.setText(item.movieNm);
-            textView2.setText(item.rank + " 위");
+
+            textView1.setText(item.rank + " 위");
+            textView2.setText(item.movieNm);
             textView3.setText("개봉일 : " + item.openDt);
-            textView4.setText("누적 관람객 수 : " + item.audiAcc + " 명");
-            textView5.setText("일별 관람객 수 : " + item.audiAcc + " 명");
+            textView4.setText("일별 관람객 수 : " + item.audiCnt + " 명");
+            textView5.setText("누적 관람객 수 : " + item.audiAcc + " 명");
         }
 
 
     }
+
 }
