@@ -72,7 +72,7 @@ button1은 kobis mobile 페이지로, button2는 kobis mobile 최신상영작 �
 
 
 
-
-<img width="250" height="450" src="./Png/b.png"></img>
-<img width="250" height="450" src="./Png/c.png"></img>
+# 결과 화면
+<img width="250" height="455" src="./Png/b.png"></img>
+<img width="250" height="455" src="./Png/c.png"></img>
 
