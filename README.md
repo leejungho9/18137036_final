@@ -6,6 +6,8 @@ Daily Box Office TOP10
 
 ## 전체적인 프로젝트 구현 
 
+https://www.kobis.or.kr/kobisopenapi/homepg/apiservice/searchServiceInfo.do
+
 영화의 정보를 받 JSON형식의 오픈API URL과 Key를 받아 웹서버에 요청한다.
 <img width="1000" height="50" src="./Png/JSON1.png"></img>
 
