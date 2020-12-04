@@ -1,11 +1,17 @@
 # 프로젝트 명
-영화 박스오피스 어플
+Daily Box Office TOP10 
 
 # 프로젝트 설명
 오픈API를 이용해 영화 박스오피스를 시각화한 어플리케이션
 
 ## 전체적인 프로젝트 구현 
-영화의 정보를 받아올 수 있는 JSON형식의 오픈API URL과 Key를 받아 웹서버에 요청한다.
+영화의 정보를 받 JSON형식의 오픈API URL과 Key를 받아 웹서버에 요청한다.
+https://www.kobis.or.kr/kobisopenapi/homepg/apiservice/searchServiceInfo.do
+
+위에 사이트에서 받은 URL JSON 형식으로 짜여져있음을 확인할 수 있다.
+
+
+
 요청하기버튼을 클릭 시, 입력한 날짜에 맞춰 박스오피스순위와 정보를 리싸이클러뷰에 표시된다.
 왼쪽에는 팝콘이미지 그 옆으로는 순위, 영화제목, 개봉일, 일별 관람객 수, 누적 관람객 수, 홈페이지바로가기 버튼, 최신 상영작 페이지를 볼 수 있는 버튼이 나타난다.
 
@@ -79,7 +85,7 @@ button1은 kobis mobile 페이지로, button2는 kobis mobile 최신상영작 �
 
 <img width="250" height="455" src="./Png/design2.png"></img>
 
-2.정보 시각화 화
+2.정보 시각화 화면
 
 <img width="500" height="280" src="./Png/design1.png"></img>
 
