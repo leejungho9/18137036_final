@@ -19,6 +19,7 @@ Daily Box Office TOP10
 그 후 MovieList , MovieListResult ,Movie 클래스를 만든다. 이때 Movie 클래스 안에는 JSON문자열 형식에 영화정보를  입력한다.
 
 <b>실제Movie클래스에 적은 문자열</b>
+
 <img width="250" height="455" src="./Png/1234.png"></img>
 
 왼쪽에는 팝콘이미지 그 옆으로는 순위, 영화제목, 개봉일, 일별 관람객 수, 누적 관람객 수, 홈페이지바로가기 버튼, 최신 상영작 페이지를 볼 수 있는 버튼이 나타난다.
