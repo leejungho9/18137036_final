@@ -51,7 +51,7 @@ MovieList 안에는 boxofficeResult라는 변수를 선언해야한다. 이때 �
 
 <img width="400" height="500" src="./Png/adapter.png"></img>
 
-클래스를 만들었으면 그 안에 ViewHoler 클래스를 static으로 정의하고 리스트 형태로 보일 때 각각의 item은 view로 만들어지고 이 item은 ViewHolder에 담기게 된다.
+클래스를 만들었으면 그 안에 ViewHoler 클래스를 static으로 정의한다. 그 후 리스트 형태로 각각의 item은 view로 만들어지고 이 item은 ViewHolder에 담기게 된다.
 결국ViewHolder안에는 Movie의 객체들이 담기게 되며 setItem()메서드로 인해 Movie 객체를 전달한다.
 
 ViewHolder에 넣어 줄 뷰 객체의 XML 레이아웃의 이름은 movie_item 이라고 정하고 보여질 화면은 cardview를 사용하여 만든다.
