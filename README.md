@@ -72,13 +72,13 @@ cardView는 layout_margin 값을 주어 테두리가 띄어지게 만든다.
 
 리싸이클러뷰를 위한 어댑터가 만들어졌으면 이 어댑터를 리싸이클러뷰 객체에 설정하고 그 아래에 MovieAdapter 객체를 만들어 setAdapter()를 호출하도록 설정하면recyclerview와 adater가 상호작용하면서 리스트모양으로 보여준다.
 
-버튼을 눌렀을 때 리싸이클러뷰에 보여지는 과정으로 onCreate() 메서드 안에 imagebutton과 Listener를 추가하고 Volley의 RequestQueue 객체를 생성하는 코드를 추가한다.
+이 후에 버튼을 눌렀을 때 입력상자에 입력한 사이트 주소로 웹 요청을 하도록 MainActivity에서 파일 수정을 해야 한다. onCreate() 메서드 안에 imagebutton과 Listener를 추가하고 Volley의 RequestQueue 객체를 생성하는 코드를 추가한다.
 
 <b>[실제 MainActivity processResponse 코드]</b>
 
 <img width="450" height="300" src="./Png/response.png"></img>
 
-마지막으로 사용자가 버튼을 눌러 응답을 받았을 때 호출되는 OnResponse() 안에서는 processResponse()를 호출한다. 이 안에서는 Gson을 이용해 Json 문자열을 MovieList 객체로 변환하며 그 안에 들어있는 Movie 객체들을 하나씩 꺼내어 어댑터에 추가한다. 어댑터를 모두 추가했다면 마지막 줄에 있는 notifyDataSetChanged()메서드를 호출해야 변경 사항이 반영되어 영화 정보가 리싸이클러뷰에 표시된다.
+마지막으로 사용자가 버튼을 눌러 응답을 받았을 때 호출되는 OnResponse() 는 processResponse()를 호출한다.processResponse() 안에서는 Gson을 이용해 Json 문자열을 MovieList 객체로 변환하며 그 안에 들어있는 Movie 객체들을 하나씩 꺼내어 어댑터에 추가한다. 어댑터를 모두 추가했다면 마지막 줄에 있는 notifyDataSetChanged()를 호출해야 변경 사항이 반영되고리싸이클러뷰에 영화 정보가 표시된다.
 
 
 ## 응용한 부분
