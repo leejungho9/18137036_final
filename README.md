@@ -7,14 +7,18 @@ Daily Box Office TOP10
 ## 전체적인 프로젝트 구현 
 
 
-영화의 일일 박스오피스 순위의 정보를 가지고있는 JSON형식의 오픈API URL과 Key를 받아 웹서버에 요청한다.
+영화의 일일 박스오피스 순위의 정보를 가지고있는 JSON형식의 오픈API URL과 Key를 웹서버에서 제공받는다.
+
+<b> 영화권입장권통합전산망 오픈API 페이지 </b>
+
+http://www.kobis.or.kr/kobisopenapi/homepg/apiservice/searchServiceInfo.do
 
 <b>JSON형식의 데이터 이미지</b>
 <img width="1000" height="50" src="./Png/JSON1.png"></img>
 
-웹서버에 URL을 입력하고 요청하기 버튼을 클릭하면 입력한 날짜에 맞춰 박스오피스순위와 정보를 리싸이클러뷰에 표시된다.
+짧게 요약하면 이것을 가지고 입력상자에 사이트 주소를 넣고 요청하기 버튼을 만들어 사이트로부터 응답 데이터를 가져와 json형식의 문자열을 자바 객체로 바꿔 그 안에 있는 데이터를 리싸이클러로 시각화하여 나타내는 것인데, 이를 시작하기 위해선 웹서버의 요청하고 응답을 단순화시키는 volley라이브러리를 사용한다.
 
-이때 웹서버에 요청하고 응답을 받을 때 단순화하기 위해 volley라이브러리를 사용하는데 Volley를 사용하기 위해서는 Request 객체를 만들어 이 객체를 RequestQueue에 넣으면된다.
+Volley를 사용하기 위해서는 Request 객체를 만들어 이 객체를 RequestQueue에 넣으면된다.
 
 그 후 MovieList , MovieListResult ,Movie 클래스를 만든다. 이때 Movie 클래스 안에는 JSON문자열 형식에 영화정보를  입력한다.
 
