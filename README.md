@@ -18,6 +18,14 @@ Daily Box Office TOP10
 
 그 후 MovieList , MovieListResult ,Movie 클래스를 만든다. 이때 Movie 클래스 안에는 JSON문자열 형식에 영화정보를  입력한다.
 
+<b>실제MovieList클래스에 적은 문자열</b>
+
+<img width="450" height="200" src="./Png/movielist.png"></img>
+
+<b>실제MovieListResult클래스에 적은 문자열</b>
+
+<img width="450" height="200" src="./Png/movielistr.png"></img>
+
 <b>실제Movie클래스에 적은 문자열</b>
 
 <img width="250" height="455" src="./Png/1234.png"></img>
