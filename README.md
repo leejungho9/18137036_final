@@ -40,7 +40,8 @@ MovieList 안에 boxofficeResult라는 변수를 선언해야한다. 이때 주�
 
 <img width="300" height="150" src="./Png/movielisr.png"></img>
 
- 위에서 만든  boxofficeResult를 담아두기 위해 만든 MovieListResult안에는 배열 안에 다시 객체들이 들어가는 경우를 위한 클래스인 ArrayList도 만든다.
+ 위에서 만든  boxofficeResult를 담아두기 위해 만든 MovieListResult안에는 배열 안에 다시 객체들이 들어가는 경우를 위한 클래스인 ArrayList도 만들어 준다.
+
 
 <b>[실제Movie클래스에 적은 코드]</b>
 
@@ -54,7 +55,8 @@ MovieList 안에 boxofficeResult라는 변수를 선언해야한다. 이때 주�
 
 <img width="400" height="500" src="./Png/adapter.png"></img>
 
-클래스를 만들었으면 그 안에 ViewHoler 클래스를 static으로 정의하고 리스트 형태로 보일 때 ViewHoler에 movie의 객체가 담기게 된다.
+클래스를 만들었으면 그 안에 ViewHoler 클래스를 static으로 정의하고 리스트 형태로 보일 때 item은 view로 만들어지며 각각의 item은 ViewHoler에 담기게 된다.
+결국 ViewHoler안에는 Movie의 객체들이 담기게 되므로 setItem()메서드로 객체를 전달한다.
 
 ViewHole에 넣어 줄 뷰 객체의 XML 레이아웃은 movie_item 이라고 정하고 보여지게 할 화면을 cardview 사용하여 만든다.
 
