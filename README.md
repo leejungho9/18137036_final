@@ -22,15 +22,25 @@ Daily Box Office TOP10
 
 <img width="300" height="150" src="./Png/movielist.png"></img>
 
+객체를 반환할 클래스로 만든 MovieList 안에 boxofficeResult라는 변수를 추가한다. 이때 주의할 점은 JSON문자열에서 속성의 이름과 같아야 한다.
+MovieListResult는 boxofficeResult를 담아둘 클래스를 정의한 것
+
 <b>실제MovieListResult클래스에 적은 문자열</b>
 
 <img width="300" height="150" src="./Png/movielisr.png"></img>
+
+ 위에서 만든  boxofficeResult를 담아두기 위해 만든 MovieListResult안에는 배열안에 객체들이 들어가는 경우 해당 객체들을 위한 클래스로 ArrayList를 만든다.
 
 <b>실제Movie클래스에 적은 문자열</b>
 
 <img width="250" height="455" src="./Png/1234.png"></img>
 
-마지막으로 MovieAdaptet 객체를 만들어 setAdapter()메서드를 호출하여 만들어두었던 리싸이클러뷰가 어댑터와 상호작용하면서 리스트 모양을 보여주게된다. 
+Movie 클래스에서는 JSON문자열 형식의 영화정보를 입력한다.
+
+마지막으로 Movie의 객체를 관리하기 위하여 MovieAdaptet 클래스를 만들고 그 안에 ViewHoler 클래스를 static으로 정의한다. 이때  ViewHoler에 movie 객체가 담기게 된다. 여기서 textviw 또한 생성 한다. 
+
+시각화 되어 보여줄 layout인 movie_item 레이아웃을 생성하고 그안에 cardview를 형식으로 만든다. 이제  MovieAdaptet 클래스가 recyclerview.adapter 클래스를 상속하도록 하게 만들면 리싸이클러뷰가 어댑터와 상호작용하면서 리스트모양으로 보여주게된다.
+
 
 이제 사용자가 버튼을 누르면 듣답을 받았을 때 호출되는 메서드안에서 JSON문자열을 MovieList객체로 변환하며 그 안에 들어있는 Movie 객체들을 하나씩 어댑터에 추가하면서 왼쪽에는 팝콘이미지 그 옆으로는 순위, 영화제목, 개봉일 같은 영화정보와 일별 관람객 수, 누적 관람객 수, 홈페이지바로가기 버튼, 최신 상영작 페이지를 볼 수 있는 버튼이 나타난다.
 
@@ -45,7 +55,7 @@ activity_main.xml RecyclerView를 화면에 끌어와 다운로드를 진행한�
 ### 중복 LinearLayout구현
 
 중복 레이아웃이아웃은 하나의 레이아웃 안에 레이아웃을 여러개 만드는 걸 말한다.
-프로젝트 안에서도 사용된 레이아웃은 총 5개로 중복 레이아웃을 통해서 수평 수직 배열의 형태로 지정할 수 있다. 
+프로젝트 안에서도 사용된 레이아웃은 총 6개로 중복 레이아웃을 통해서 수평 수직 배열의 형태로 지정할 수 있다. 
 
 ### TextView구현 
 
@@ -104,8 +114,12 @@ button1은 kobis mobile 페이지로, button2는 kobis mobile 최신상영작 �
 ## 디자인
 
 1.웹 요청 화면 
+<b>(왼쪽) 기존 화면</b>  <b>(오른쪽) 변경 화면</b>
 
+<img width="250" height="455" src="./Png/777.png"></img>
 <img width="250" height="455" src="./Png/design2.png"></img>
+
+imageButton을 사용하여 기존에 자리를 많이 차지했던 버튼을  
 
 2.정보 시각화 화면
 
