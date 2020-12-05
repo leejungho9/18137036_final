@@ -74,19 +74,15 @@ cardView는 layout_margin 값을 주어 테두리가 띄어지게 만들 수 있
 
 <img width="600" height="150" src="./Png/4444.png"></img>
 
-리싸이클러뷰를 위한 어댑터가 만들어졌으니 이 어댑터를 리싸이클러뷰 객체에 설정하고 그 아래에 MovieAdapter 객체를 만들고 setAdapter()를 호출하도록 설정하면recyclerview와 adater가 상호작용하면서 리스트모양으로 보여준다.
+리싸이클러뷰를 위한 어댑터가 만들어졌으면 이 어댑터를 리싸이클러뷰 객체에 설정하고 그 아래에 MovieAdapter 객체를 만들고 setAdapter()를 호출하도록 설정하면recyclerview와 adater가 상호작용하면서 리스트모양으로 보여준다.
 
-
-마지막으로 요청하기를 눌렀을 떄  리싸이클러뷰에 보여주는 과정으로 onCreate() 메서드 안에 button과 Listener 를 추가하고 Volley의  RequestQueue  생성하는 코드를 추가히거 메서드들을 순서대로 정의한다.
-
-그 후 사용자가 버튼을 누르면 응답을 받으면 OnResponse()메서드 안에서 processResponse() 메서드를 호출하고  processResponse() 메서드 안에서는 Gson을 이용해 Json 문자열을 MovieList 객체로 변환하여 그 안에 들어있는 객체를 Movie 객체들을 하나씩 꺼내어 어댑터에 추가한다. 
+마지막으로 요청하기를 눌렀을 때 리싸이클러뷰에 보여주는 과정으로 onCreate() 메서드 안에 imagebutton과 Listener 를 추가하고 Volley의  RequestQueue  생성하는 코드를 추가히거 메서드들을 순서대로 정의한다.
 
 <b>[실제 MainActivity processResponse 코드]</b>
 
 <img width="450" height="300" src="./Png/response.png"></img>
 
-위 사진과 같이 어댑터를 모두 추가했다면 마지막 줄에 있는 notifyDataSetChanged()메서드를 호출해야 변경 사항이 반영된다.
-
+그 후 사용자가 버튼을 눌러 응답을 받으면 OnResponse()메서드 안에서 processResponse() 메서드를 호출하고 processResponse() 메서드 안에서는 Gson을 이용해 Json 문자열을 MovieList 객체로 변환하여 그 안에 들어있는 객체를 Movie 객체들을 하나씩 꺼내어 어댑터에 추가한다. 어댑터를 모두 추가했다면 마지막 줄에 있는 notifyDataSetChanged()메서드를 호출해야 변경 사항이 반영된다.
 
 
 ## 응용한 부분
