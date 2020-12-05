@@ -111,7 +111,7 @@ button1은 kobis mobile 페이지로, button2는 kobis mobile 최신상영작 �
 
 
 
-## 디자인
+## 위에 내용을 응용하여 바뀐 디자인
 
 <b>1.웹 요청 화면 </b>
 
@@ -126,11 +126,16 @@ button1은 kobis mobile 페이지로, button2는 kobis mobile 최신상영작 �
 
 <b>(위) 기존 화면  (아래) 변경 화면</b>
 
-<img width="500" height="280" src="./Png/888.png"></img>
+<img width="500" height="180" src="./Png/888.png"></img>
 
 <img width="500" height="280" src="./Png/design1.png"></img>
 
+기존에는 영화의 제목과 관객수만 보이는 단순한 구조였다면 , 순위,  개봉일을 추가하고 일별 관람객과 누적 관람객으로 나눠 표시하도록 만들었다. 
+그 후 모바일 홈페이지와 최신상영작페이지로 바로갈 수 있는 버튼 두 개를 만들어 사용자들이 더욱 편리하게 사용 가능하도록 바꾸었다.
+
 ## 결과 화면
+
+<b>(오른쪽) 웹 요청 화면 (왼쪽) 요청받아 시각화 된 화면 </b>
 
 <img width="250" height="455" src="./Png/b.png"></img>
 <img width="250" height="455" src="./Png/c.png"></img>
