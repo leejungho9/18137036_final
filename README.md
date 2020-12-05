@@ -54,13 +54,13 @@ MovieList 안에는 boxofficeResult라는 변수를 선언해야한다. 이때 �
 클래스를 만들었으면 그 안에 ViewHoler 클래스를 static으로 정의하고 리스트 형태로 보일 때 각각의 item은 view로 만들어지고 이 item은 ViewHolder에 담기게 된다.
 결국ViewHolder안에는 Movie의 객체들이 담기게 되며 setItem()메서드로 인해 Movie 객체를 전달한다.
 
-ViewHolder에 넣어 줄 뷰 객체의 XML 레이아웃은 movie_item 이라고 정하고 보여질 할 화면을 cardview를 사용하여 만든다.
+ViewHolder에 넣어 줄 뷰 객체의 XML 레이아웃의 이름은 movie_item 이라고 정하고 보여질 화면은 cardview를 사용하여 만든다.
 
 <b>[실제 movie_item.xml cardview 코드]</b>
 
 <img width="450" height="450" src="./Png/cardview.png"></img>
 
-cardView는 layout_margin 값을 주어 테두리가 띄어지게 만들 수 있다.
+cardView는 layout_margin 값을 주어 테두리가 띄어지게 만든다.
 
 <b>[실제  MovieAdapter.java 코드]</b>
 
@@ -72,13 +72,13 @@ cardView는 layout_margin 값을 주어 테두리가 띄어지게 만들 수 있
 
 리싸이클러뷰를 위한 어댑터가 만들어졌으면 이 어댑터를 리싸이클러뷰 객체에 설정하고 그 아래에 MovieAdapter 객체를 만들어 setAdapter()를 호출하도록 설정하면recyclerview와 adater가 상호작용하면서 리스트모양으로 보여준다.
 
-마지막으로 요청하기를 눌렀을 때 리싸이클러뷰에 보여지는 과정으로 onCreate() 메서드 안에 imagebutton과 Listener를 추가하고 Volley의 RequestQueue 객체를 생성하는 코드를 추가한다.
+버튼을 눌렀을 때 리싸이클러뷰에 보여지는 과정으로 onCreate() 메서드 안에 imagebutton과 Listener를 추가하고 Volley의 RequestQueue 객체를 생성하는 코드를 추가한다.
 
 <b>[실제 MainActivity processResponse 코드]</b>
 
 <img width="450" height="300" src="./Png/response.png"></img>
 
-그 후 사용자가 버튼을 눌러 응답을 받았을 때 호출되는 OnResponse()메서드 안에서는 processResponse() 메서드를 호출한다. 이 메서드 안에서는 Gson을 이용해 Json 문자열을 MovieList 객체로 변환하며 그 안에 들어있는 Movie 객체들을 하나씩 꺼내어 어댑터에 추가한다. 어댑터를 모두 추가했다면 마지막 줄에 있는 notifyDataSetChanged()메서드를 호출해야 변경 사항이 반영된다.
+마지막으로 사용자가 버튼을 눌러 응답을 받았을 때 호출되는 OnResponse() 안에서는 processResponse()를 호출한다. 이 안에서는 Gson을 이용해 Json 문자열을 MovieList 객체로 변환하며 그 안에 들어있는 Movie 객체들을 하나씩 꺼내어 어댑터에 추가한다. 어댑터를 모두 추가했다면 마지막 줄에 있는 notifyDataSetChanged()메서드를 호출해야 변경 사항이 반영되어 영화 정보가 리싸이클러뷰에 표시된다.
 
 
 ## 응용한 부분
