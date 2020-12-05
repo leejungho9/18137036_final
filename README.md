@@ -18,35 +18,32 @@ Daily Box Office TOP10
    
  <b>프로젝트 구현 전, 요약</b>
 
-전체 프로젝트를 요약하면 , OpenAPI url을 입력상자에 넣고 요청하기 버튼을 클릭해 웹서버를 요청하면 Volley가 받은 요청과 응답을 단순화하여 가져온다. 가져온 응답은 JSON형식의 데이터이기 때문에 이를 gson통해 자바 객체로 바꿔 그 안에 있는 데이터를 하나씩 꺼내 어댑터에 추가한다. 그 후 어댑터에 리싸이클러뷰 객체를 설정하고 리스트형식으로 시각화하여 박스오피스 정보를 나타내는 프로젝트이다.
+전체 프로젝트를 요약하면 , OpenAPI url을 입력상자에 넣고 요청하기 버튼을 클릭해 웹서버를 요청하면 Volley가 받은 요청과 응답을 단순화하여 가져온다. 가져온 응답은 JSON형식의 데이터이기 때문에 이를 gson통해 자바 객체로 바꾸고 그 안에 있는 데이터를 하나씩 꺼내 어댑터에 추가한다. 그 후 어댑터에 리싸이클러뷰 객체를 설정하고 리스트형식으로 시각화하여 박스오피스 정보를 나타내는 프로젝트이다.
  
  <b>프로젝트 구현 시작 </b> 
  
-이를 시작하기 위해 웹서버에 요청하고 응답받을 때 volley를 사용하기 때문에 라이브러리 꼭 추가해야된다. 추가 후 응답을 받기 위해서는 Request 객체를 만들고 RequestQueue에 넣어주면 큐가 알아서 웹서버에 요청하고 응답까지 받아준다.
+이를 시작하기 위해 웹서버에 요청하고 응답받을 때 volley를 사용하기 때문에 라이브러리에 volley를 꼭 추가해야된다. 추가 후 응답을 받기 위해서는 Request 객체를 만들고 RequestQueue에 넣어주면 큐가 알아서 웹서버에 요청하고 응답까지 받아준다.
 
+이 후 웹으로 응답으로 받은 JSON 결과물을 처리하기 위해 gson을 라이브러리에 추가하고 JSON을 자바 객체로 바꿀 때 필요한 MovieList 라는 클래스를 만들어준다.
 
-
-이 후 웹 응답으로 받은 JSON 결과물을 처리하기 위해 gson을 라이브러리에 추가하고 JSON을 자바 객체로 바꿀 때도 클래스를 정의해야 하기 때문에 MovieList 클래스를 만들어준다.
-( gson은 JSON문자열을 자바 객체로 만들어 그 안에 있는 데이터를 사용할 수 있게 해준다.)
 <b>[실제MovieList클래스에 적은 코드]</b>
 
 <img width="300" height="150" src="./Png/movielist.png"></img>
 
-MovieList 안에 boxofficeResult라는 변수를 선언해야한다. 이때 주의할 점은 JSON문자열에서의 속성과 같아야 한다.
+MovieList 안에는 boxofficeResult라는 변수를 선언해야한다. 이때 주의할 점은 JSON문자열에서의 속성과 같아야 한다.
 [MovieListResult는 boxofficeResult를 담아둘 클래스를 정의한 것]
 
 <b>[실제MovieListResult클래스에 적은 코드]</b>
 
 <img width="300" height="150" src="./Png/movielisr.png"></img>
 
- 위에서 만든  boxofficeResult를 담아두기 위해 만든 MovieListResult안에는 배열 안에 다시 객체들이 들어가는 경우를 위한 클래스인 ArrayList도 만들어 준다.
-
+위에서 만든  boxofficeResult를 담아두기 위해 만든 MovieListResult안에는 배열 안에 다시 객체들이 들어가는 경우를 위한 ArrayList클래스도 만들어 준다.
 
 <b>[실제Movie클래스에 적은 코드]</b>
 
 <img width="250" height="455" src="./Png/1234.png"></img>
 
-마지막 Movie 클래스에서는 JSON문자열 형식의 영화정보를 입력해야한다. 
+마지막 Movie 클래스에서는 JSON문자열 형식의 영화정보를 입력한다.
 
 이제 이것들을 화면에 리스트 모양으로 보여주기 위한 작업을 해야한다. activity_main.xml 파일에 recyclerview를 추가하고 이를 관리할 어댑터를 만들기 위해 MovieAdapter라는 클래스를 생성한다.
 
@@ -54,8 +51,8 @@ MovieList 안에 boxofficeResult라는 변수를 선언해야한다. 이때 주�
 
 <img width="400" height="500" src="./Png/adapter.png"></img>
 
-클래스를 만들었으면 그 안에 ViewHoler 클래스를 static으로 정의하고 리스트 형태로 보일 때 item은 view로 만들어지고 각각의 item은 ViewHolder에 담기게 된다.
-결국ViewHolder안에는 Movie의 객체들이 담기게 되며 setItem()메서드의 파라미터로 Movie 객체를 전달한다.
+클래스를 만들었으면 그 안에 ViewHoler 클래스를 static으로 정의하고 리스트 형태로 보일 때 각각의 item은 view로 만들어지고 이 item은 ViewHolder에 담기게 된다.
+결국ViewHolder안에는 Movie의 객체들이 담기게 되며 setItem()메서드로 인해 Movie 객체를 전달한다.
 
 ViewHolder에 넣어 줄 뷰 객체의 XML 레이아웃은 movie_item 이라고 정하고 보여질 할 화면을 cardview를 사용하여 만든다.
 
