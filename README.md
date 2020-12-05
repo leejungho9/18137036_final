@@ -116,7 +116,7 @@ button1은 kobis mobile 페이지로, button2는 kobis mobile 최신상영작 �
 1.웹 요청 화면 
 <b>(왼쪽) 기존 화면</b>  <b>(오른쪽) 변경 화면</b>
 
-<img width="250" height="455" src="./Png/777.png"></img>
+<img width="250" height="455" src="./Png/77.png"></img>
 <img width="250" height="455" src="./Png/design2.png"></img>
 
 imageButton을 사용하여 기존에 자리를 많이 차지했던 버튼을  
