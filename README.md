@@ -20,13 +20,13 @@ Daily Box Office TOP10
 
 전체 프로젝트를 요약하면 , url을 가지고 입력상자에 사이트 주소를 넣고 요청하기 버튼을 클릭하면 웹서버가 요청되는데 이때 Volley가 요청과 응답을 단순화하여 응답을 받아온다. 받아온 응답은 json형식의 데이터로, 이를 gson통해 자바 객체로 바꿔 그 안에 있는 데이터를 하나씩 꺼내 어댑터에 추가한다. 그 후 어댑터에 리싸이클러뷰 객체를 설정하여 리스트형식으로 시각화하여 박스오피스 정보를 나타내는 프로젝트이다.
  
- <b>프로젝트 구현 </b> 
+ <b>프로젝트 구현 시작 </b> 
  
-이를 시작하기 위해선 웹서버에 요청하고 응답받을 때 volley를 사용하기 때문에 volley라이브러리 추가를 꼭해야한다. 추가 후 응답을 받기 위해서는 Request 객체를 만들어 이 객체를 RequestQueue에 넣어주면 큐가 알아서 웹서버에 요청하고 응답까지 받아준다.
+이를 시작하기 위해선 웹서버에 요청하고 응답받을 때 volley를 사용하기 때문에 volley라이브러리 추가를 꼭 해야한다. 추가 후 응답을 받기 위해서는 Request 객체를 만들어 이 객체를 RequestQueue에 넣어주면 큐가 알아서 웹서버에 요청하고 응답까지 받아준다.
 
 
 
-이 후 웹 응답으로 받은Json 결과물을 처리하기 위해 gson을 라이브러리에 추가해야한다.  이때 gson은 JSON문자열을 자바 객체로 만들어 그 안에 있는 데이터를 사용할 수 있게 해준다.
+이 후 웹 응답으로 받은Json 결과물을 처리하기 위해 gson을 라이브러리에 추가한다.  이때 gson은 JSON문자열을 자바 객체로 만들어 그 안에 있는 데이터를 사용할 수 있게 해준다.
 하지만 JSON을 자바 객체로 바꿀 때도 클래스를 정의해야 한다. 이때 생성한 클래스를 MovieList로 정한다.
 
 <b>실제MovieList클래스에 적은 코드</b>
@@ -48,19 +48,30 @@ MovieList 안에 boxofficeResult라는 변수를 선언해야한다. 이때 주�
 
 마지막 Movie 클래스에서는 JSON문자열 형식의 영화정보를 입력해야한다. 
 
-이제 이것들을 화면에 리스트 모양으로 보여주기 위해서는 activity_main.xml 파일에 recyclerview를 추가한다.
+이제 이것들을 화면에 리스트 모양으로 보여주기 위한 작업을 해야한다. activity_main.xml 파일에 recyclerview를 추가하고 이를 관리할 어댑터를 만들기 위해 MovieAdapter라는 클래스를 생성한다.
 
 <b>실제MovieAdaptet 클래스에 적은 코드</b>
 
-<img width="350" height="500" src="./Png/adapter.png"></img>
+<img width="400" height="500" src="./Png/adapter.png"></img>
 
-마지막으로 Movie의 객체를 관리하기 위하여 MovieAdaptet 클래스를 만들고 그 안에 ViewHoler 클래스를 static으로 정의한다. 이때  ViewHoler에 movie 객체가 담기게 된다. 여기서 textviw 또한 생성 한다. 
+클래스를 만들었으면 그 안에 ViewHoler 클래스를 static으로 정의하고 리스트 형태로 보일 때 ViewHoler에 movie의 객체가 담기게 된다.
 
-시각화 되어 보여줄 layout인 movie_item 레이아웃을 생성하고 그안에 cardview를 형식으로 만든다. 이제  MovieAdaptet 클래스가 recyclerview.adapter 클래스를 상속하도록 하게 만들면 리싸이클러뷰가 어댑터와 상호작용하면서 리스트모양으로 보여주게된다.
+ViewHole에 넣어 줄 뷰 객체의 XML 레이아웃은 movie_item 이라고 정하고 보여지게 할 화면을 cardview 사용하여 만든다.
+
+<b>실제 movie_item.xml cardview 코드</b>
+
+<img width="450" height="450" src="./Png/cardview.png"></img>
+
+cardView는 layout_margin 값을 주어 테두리가 띄어지게 만들 수 있다.
 
 
-이제 사용자가 버튼을 누르면 듣답을 받았을 때 호출되는 메서드안에서 JSON문자열을 MovieList객체로 변환하며 그 안에 들어있는 Movie 객체들을 하나씩 어댑터에 추가하면서 왼쪽에는 팝콘이미지 그 옆으로는 순위, 영화제목, 개봉일 같은 영화정보와 일별 관람객 수, 누적 관람객 수, 홈페이지바로가기 버튼, 최신 상영작 페이지를 볼 수 있는 버튼이 나타난다.
+이제 아까 만든  MovieAdaptet 클래스가 recyclerview.adapter 클래스를 상속하도록 수정하고 recyclerview와 adater가 상호작용하면서 리스트모양으로 보여준다. 마지막으로 요청하기를 눌렀을 떄  리싸이클러뷰에 보여주는 과정으로 onCreate() 메서드 안에 button과 Listener 를 추가하고 Volley의  RequestQueue  생성하는 코드를 추가히거 메서드들을 순서대로 정의한다.
 
+그 후 사용자가 버튼을 누르면 응답을 받으면 OnResponse()메서드 안에서 processResponse() 메서드를 호출하고  processResponse() 메서드 안에서는 Gson을 이용해 Json 문자열을 MovieList 객체로 변환하여 그 안에 들어있는 객체를 Movie 객체들을 하나씩 꺼내어 어댑터에 추가한다. 
+
+<b>실제 MainActivity processResponse 코드</b>
+
+<img width="450" height="300" src="./Png/response.png"></img>
 
 ## 응용한 부분
 
