@@ -30,7 +30,6 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity {
     EditText editText;
     TextView textView;
-    ImageButton imageButton;
     Button button1;
     Button button2;
 
