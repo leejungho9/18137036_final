@@ -2,20 +2,22 @@
 Daily Box Office TOP10 
 
 # 프로젝트 설명
-오픈API를 이용해 영화 박스오피스를 시각화한 어플리케이션
+    오픈API를 이용해 영화 박스오피스를 시각화한 어플리케이션
 
 ## 전체적인 프로젝트 구현 
 
-영화의 일일 박스오피스 순위의 정보를 가지고있는 오픈API URL과 Key를 웹서버에서 제공받는다.
+<b> 사전에 준비할 것</b>
 
-<b> 영화권입장권통합전산망 오픈API 페이지 </b>
+    영화의 일일 박스오피스 순위의 정보를 가지고있는 오픈API URL과 Key를 "영화권입장권통합전산망"에서 제공받는다.
 
-http://www.kobis.or.kr/kobisopenapi/homepg/apiservice/searchServiceInfo.do
+    영화권입장권통합전산망 오픈API 페이지 : http://www.kobis.or.kr/kobisopenapi/homepg/apiservice/searchServiceInfo.do
 
 <b>JSON형식의 데이터 이미지</b>
-<img width="1000" height="50" src="./Png/JSON1.png"></img>
+    <img width="1000" height="50" src="./Png/JSON1.png"></img>
 
-짧게 요약하면 이것을 가지고 입력상자에 사이트 주소를 넣고 요청하기 버튼을 만들어 요청시키면 사이트로부터 json형식의데이터를 가져와 jspm 문자열을 자바 객체로 바꿔 그 안에 있는 데이터를 하나씩 꺼내와 어댑터에 추가하여 리싸이클러뷰와 객체에 어댑터를 설정하여 리스트형식으로 시각화하여 나타내는 것인데, 이를 시작하기 위해선 웹서버의 요청하고 응답을 단순화시키는 volley라이브러리를 사용한다.
+ 전체 프로젝트를 요약하면 , url을 가지고 입력상자에 사이트 주소를 넣고 요청하기 버튼을 클릭하여 요청시키면 Volley가 웹 요청과 응답을 단순화하여 응답을 받아온다. 받아온 응답엔 json형식의데이터가 있는데,  이를 gson통해 자바 객체로 바꿔 그 안에 있는 데이터를 하나씩 꺼내 어댑터에 추가한다. 그 후 어댑터에 리싸이클러뷰의 객체를 설정하여 리스트형식으로 시각화하여 나타내는 프로젝트이다.
+ 
+이를 시작하기 위해선 웹서버의 요청하고 응답을 단순화시키는 volley라이브러리를 사용한다.
 
 Volley를 사용하기 위해서는 Request 객체를 만들어 이 객체를 RequestQueue에 넣으면된다.
 
