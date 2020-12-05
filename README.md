@@ -66,8 +66,18 @@ ViewHole에 넣어 줄 뷰 객체의 XML 레이아웃은 movie_item 이라고 �
 
 cardView는 layout_margin 값을 주어 테두리가 띄어지게 만들 수 있다.
 
+<b>[실제  MovieAdapter.java 코드]</b>
 
-이제 아까 만든  MovieAdaptet 클래스가 recyclerview.adapter 클래스를 상속하도록 수정하고 recyclerview와 adater가 상호작용하면서 리스트모양으로 보여준다. 마지막으로 요청하기를 눌렀을 떄  리싸이클러뷰에 보여주는 과정으로 onCreate() 메서드 안에 button과 Listener 를 추가하고 Volley의  RequestQueue  생성하는 코드를 추가히거 메서드들을 순서대로 정의한다.
+<img width="500" height="100" src="./Png/123456.png"></img>
+
+이제 MovieAdapter.java에서 아까 만든  MovieAdapter 클래스가 recyclerview.adapter 클래스를 상속하도록 수정한다
+
+<img width="600" height="150" src="./Png/4444.png"></img>
+
+리싸이클러뷰를 위한 어댑터가 만들어졌으니 이 어댑터를 리싸이클러뷰 객체에 설정하고 그 아래에 MovieAdapter 객체를 만들고 setAdapter()를 호출하도록 설정하면recyclerview와 adater가 상호작용하면서 리스트모양으로 보여준다.
+
+
+마지막으로 요청하기를 눌렀을 떄  리싸이클러뷰에 보여주는 과정으로 onCreate() 메서드 안에 button과 Listener 를 추가하고 Volley의  RequestQueue  생성하는 코드를 추가히거 메서드들을 순서대로 정의한다.
 
 그 후 사용자가 버튼을 누르면 응답을 받으면 OnResponse()메서드 안에서 processResponse() 메서드를 호출하고  processResponse() 메서드 안에서는 Gson을 이용해 Json 문자열을 MovieList 객체로 변환하여 그 안에 들어있는 객체를 Movie 객체들을 하나씩 꺼내어 어댑터에 추가한다. 
 
