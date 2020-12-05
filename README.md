@@ -24,7 +24,7 @@ Daily Box Office TOP10
 
 <b>실제MovieListResult클래스에 적은 문자열</b>
 
-<img width="450" height="200" src="./Png/movielistr.png"></img>
+<img width="450" height="200" src="./Png/movielisr.png"></img>
 
 <b>실제Movie클래스에 적은 문자열</b>
 
