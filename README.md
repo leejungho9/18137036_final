@@ -115,14 +115,18 @@ button1은 kobis mobile 페이지로, button2는 kobis mobile 최신상영작 �
 
 <b>1.웹 요청 화면 </b>
 
-(왼쪽) 기존 화면</b>  <b>(오른쪽) 변경 화면</b>
+<b>(왼쪽) 기존 화면  (오른쪽) 변경 화면</b>
 
 <img width="250" height="455" src="./Png/777.png"></img>
 <img width="250" height="455" src="./Png/design2.png"></img>
 
 이 프로젝트 명인 Daily Box Office TOP10 맨 위 상단에 textview로 나타내고 기존에 자리를 많이 차지했던 요청하기 버튼을 imageButton으로 돋보기 모양으로 변경하여 정보를 나타낼 수 있는 공간을 확보했다. 
 
-2.정보 시각화 화면
+<b>2.정보 시각화 화면</b>
+
+<b>(위) 기존 화면  (아래) 변경 화면</b>
+
+<img width="500" height="280" src="./Png/888.png"></img>
 
 <img width="500" height="280" src="./Png/design1.png"></img>
 
