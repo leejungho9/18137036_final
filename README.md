@@ -90,11 +90,11 @@ activity_main.xml RecyclerView를 화면으로 끌어와 사용 가능하다. + 
 
 ### 중복 LinearLayout구현
 
-중복 LinearLayout은 하나의 레이아웃 안에 레이아웃을 여러개 만드는 것을 말한다. 프로젝트 안에 있는 movie_item 레이아웃에서 사용된 LinearLayout만으로도 총 6개로 중복 레이아웃을 통해서 수평 수직 배열의 형태로 지정했다.
+중복 LinearLayout은 하나의 레이아웃 안에 레이아웃을 여러개 만드는 것을 말하고 중복 레이아웃 안에 있는 내용물을 수평,수직의 형태로 정렬할 수 있다.
 
 ### TextView구현 
 
- activity_main 과 movie_item 레이아웃을 합쳐서 사용된 TextView만 총 6개다. 프로젝트 명, 영화순위, 영화제목, 개봉일, 일별 관람객 수, 누적 관람객 수를 보여지도록 만들었는데 프로젝트 명을 제외한 나머지는 ViewHolder안에 담긴 Movie의 객체들을 메서드를 전달받아 TextView로 표시를 해주는 방식으로 화면에 구현 하기 위해서는 MovieAdapter.java 페이지에서 작성하며 findViewById(R.id.textview); 코드를 입력해 xml과 연결시킨다. [위에 MovieAdapter.java코드 참고]
+이 프로젝트에서 사용한 TextView는 총 6개로 프로젝트 명, 영화순위, 영화제목, 개봉일, 일별 관람객 수, 누적 관람객 수를 보여준다. 프로젝트 명을 제외한 나머지는 ViewHolder안에 담긴 Movie의 객체들을 전달 받아 TextView로 표시를 해주는 방식이고 이를 화면에 구현 하기 위해서는 MovieAdapter.java 페이지에서 작성하며 findViewById(R.id.textview); 코드를 입력해 xml과 연결시켜야 한다. [위에 MovieAdapter.java코드 참고]
 
 <b>TextView 꾸미기</b>
 
@@ -111,18 +111,18 @@ textStyle과 textColor를 활용하여 text를 꾸며 줄 수 있다.
 >{ Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("이동할 페이지의 url 입력"));
    startActivity(myIntent);}
 
- movie_item 레이아웃에 들어간 버튼 두 개의 역할은 웹페이지 이동에 목적을 두고있다.
+movie_item.xml에 들어간 버튼 두 개의 역할은 웹페이지 이동에 목적을 두고있다.
 button1은 kobis mobile 페이지로, button2는 kobis mobile 최신상영작 페이지로 이동하는데 구현하는 방법은 OnClick 함수를 지정하는 것이다. 프로그램에서 button1의 OnClick  함수는 B1 으로, button2의 OnClick 함수는 B2로 지정했다. 그 후 MainActivity로 이동해 button1의 OnClick의 함수인 B1을 호출하고 Intent 함수를 myIntent로 불러오는 위와 같은 코드를 작성한다. button2도 같은 방법으로 작성 가능하다.( 단, button2의 함수는 B2 !)
 
 ### imeageView 구현
 
 >app:srcCompat="@drawable/이미지이름" 
 
-영화와 관련된 이미지가 어떤것이 있을까 고민하다가 영화하면 빠질 수없는 팝콘이 생각나, 무료 이미지제공 사이트에서 다운받았다. 이를 화면에 나타내기 위해서는 res - drawavble에 이미지를 넣고  이미지를 구현할 레이아웃인 movie_item 에서 ImageView를 추가하고 위와 같은 코드를 작성한다.
+영화와 관련된 이미지가 어떤것이 있을까 고민하다가 영화하면 빠질 수없는 팝콘이 떠올라 무료 이미지제공 사이트에서 다운받았다. 이를 화면에 나타내기 위해서는 res - drawavble에 이미지를 넣고  이미지를 구현할 레이아웃인 movie_item 에서 ImageView를 추가하고 위와 같은 코드를 작성한다.
 
 ### imeagebutton 구현
 
-이미지버튼을 눌렀을 때 입력상자에 입력한 사이트 주소로 웹 요청을 해야하므로 MainActivity.java 파일에서 onCreate() 메서드안에 ImageButton과 setOnClickListener를 추가하여 volley의 RequestQueue 객체를 생성하는 코드를 작성후 makeRequest(), println(),processResponse() 메서드를 정의해준다.
+이미지버튼을 눌렀을 때 입력상자에 입력한 사이트 주소로 웹 요청을 해야하므로 MainActivity.java 파일에서 onCreate() 메서드안에 ImageButton과 setOnClickListener를 추가하고 volley의 RequestQueue 객체를 생성하는 코드를 작성후 makeRequest(), println(),processResponse() 메서드를 정의해준다.
 
 
 - ### 주의 할 점
@@ -135,7 +135,7 @@ button1은 kobis mobile 페이지로, button2는 kobis mobile 최신상영작 �
    
 >android:usesCleartextTraffic="true"
 
-3.Volley를 사용해서 웹서버로부터 JSON응답을 받고 Gson으로 JSON 문자열을 자바 객체로 변환해야 한다. 하지만 둘 다 외부라이브러리이기 때문에 사용하려면 build.gradle(Module:app) 라이브러리에 아래와 같은 코드를 추가해야한다.
+3.Volley와 Gson은 외부라이브러리이기 때문에 사용기 위해서는 build.gradle(Module:app) 라이브러리에 아래와 같은 코드를 추가해야한다.
 
 >implementation 'com.android.volley:volley:1.1.0'
 
