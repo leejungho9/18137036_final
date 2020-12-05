@@ -98,7 +98,7 @@ activity_main.xml RecyclerView를 화면에 끌어와 사용 가능하다. + car
 
 ### TextView구현 
 
- activity_main 과 movie_item 레이아웃 합쳐서 사용된 TextView만 총6가지다. 프로젝트 명, 영화순위, 영화제목, 개봉일, 일별 관람객 수, 누적 관람객 수를 보여주도록 만들었는데 프로젝트 명을 제외한 나머지 textview는 RecyclerView 에서 상속을 받아 ViewHolder생성한 후 각각의 데이터를 받아 TextView로 표시를 해주는 방식이다. 구현 하기 위해서는 MovieAdapter.java 페이지에서 작성하며 findViewById(R.id.textview); 코드를 입력해 xml과 연결시켜줘야한다. [위에 MovieAdapter.java코드 참고]
+ activity_main 과 movie_item 레이아웃 합쳐서 사용된 TextView만 총6가지다. 프로젝트 명, 영화순위, 영화제목, 개봉일, 일별 관람객 수, 누적 관람객 수를 보여주도록 만들었는데 프로젝트 명을 제외한 나머지는 ViewHoler안에 담긴 Movie의 객체들을 메서드로 전달받아 TextView로 표시를 해주는 방식으로 화면에 구현 하기 위해서는 MovieAdapter.java 페이지에서 작성하며 findViewById(R.id.textview); 코드를 입력해 xml과 연결시켜줘야한다. [위에 MovieAdapter.java코드 참고]
 
 <b>TextView 꾸미기</b>
 
@@ -123,6 +123,11 @@ button1은 kobis mobile 페이지로, button2는 kobis mobile 최신상영작 �
 >app:srcCompat="@drawable/이미지이름" 
 
 영화와 관련된 이미지가 어떤것이 있을까 고민하다가 영화하면 빠질 수없는 팝콘이 생각나, 무료 이미지제공 사이트에서 다운받았다. 이를 화면에 나타내기 위해서는 res - drawavble에 이미지를 넣고  이미지를 구현할 레이아웃인 movie_item 에서 ImageView를 추가하고 위와 같은 코드를 작성한다.
+
+### imeagebutton 구현
+
+이 이미지버튼을 눌렀을 때 입력상자에 입력한 사이트 주소로 웹 요청을 해야하므로 MainActivity.java 파일에서 onCreate() 메서드안에 ImageButton과 setOnClickListener를 추가하여 volley의 RequestQueue 객체를 생성하는 코드를 작성후 makeRequest(), println(),processResponse() 메서드를 정의해준다.
+
 
 - ### 주의 할 점
 
@@ -156,7 +161,7 @@ button1은 kobis mobile 페이지로, button2는 kobis mobile 최신상영작 �
 <img width="250" height="455" src="./Png/777.png"></img>
 <img width="250" height="455" src="./Png/design2.png"></img>
 
-이 프로젝트 명인 Daily Box Office TOP10 맨 위 상단에 textview로 나타내고 기존에 자리를 많이 차지했던 요청하기 버튼을 imageButton으로 돋보기 모양으로 변경하여 정보를 나타낼 수 있는 공간을 확보했다. 
+이 프로젝트 이름인 Daily Box Office TOP10 맨 위 상단에 textview로 나타내고 기존에 자리를 많이 차지했던 요청하기 버튼을 imageButton으로 바꿔 돋보기 모양으로 깔끔하게 표현했다.
 
 <b>2.정보 시각화 화면</b>
 
@@ -167,7 +172,7 @@ button1은 kobis mobile 페이지로, button2는 kobis mobile 최신상영작 �
 <img width="500" height="280" src="./Png/design1.png"></img>
 
 기존에는 영화의 제목과 관객수만 보이는 단순한 구조였다면 , 순위,  개봉일을 추가하고 일별 관람객과 누적 관람객으로 나눠 표시하도록 만들었다. 
-그 후 모바일 홈페이지와 최신상영작페이지로 바로갈 수 있는 버튼 두 개를 만들어 사용자들이 더욱 편리하게 사용 가능하도록 바꾸었다.
+그 후 모바일 홈페이지와 최신상영작페이지로 바로갈 수 있는 버튼 두 개를 만들어 사용자들이 더욱 편리하게 이용 가능하도록 만들었다.
 
 ## 결과 화면
 
