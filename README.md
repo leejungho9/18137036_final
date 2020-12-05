@@ -2,45 +2,54 @@
 Daily Box Office TOP10 
 
 # 프로젝트 설명
-    오픈API를 이용해 영화 박스오피스를 시각화한 어플리케이션
+  오픈API를 이용해 영화 박스오피스를 시각화한 어플리케이션
 
-## 전체적인 프로젝트 구현 
+## 전체적인 프로젝트 요약과 구현방법 
 
 <b> 사전에 준비할 것</b>
 
     영화의 일일 박스오피스 순위의 정보를 가지고있는 오픈API URL과 Key를 "영화권입장권통합전산망"에서 제공받는다.
 
     영화권입장권통합전산망 오픈API 페이지 : http://www.kobis.or.kr/kobisopenapi/homepg/apiservice/searchServiceInfo.do
+    
+<b>JSON형식의 데이터 예시</b>
+   <img width="1000" height="50" src="./Png/JSON1.png"></img>
+   
+   
+ <b>프로젝트 구현 전, 요약</b>
 
-<b>JSON형식의 데이터 이미지</b>
-    <img width="1000" height="50" src="./Png/JSON1.png"></img>
-
- 전체 프로젝트를 요약하면 , url을 가지고 입력상자에 사이트 주소를 넣고 요청하기 버튼을 클릭하여 요청시키면 Volley가 웹 요청과 응답을 단순화하여 응답을 받아온다. 받아온 응답엔 json형식의데이터가 있는데,  이를 gson통해 자바 객체로 바꿔 그 안에 있는 데이터를 하나씩 꺼내 어댑터에 추가한다. 그 후 어댑터에 리싸이클러뷰의 객체를 설정하여 리스트형식으로 시각화하여 나타내는 프로젝트이다.
+전체 프로젝트를 요약하면 , url을 가지고 입력상자에 사이트 주소를 넣고 요청하기 버튼을 클릭하여 요청시키면 Volley가 웹 요청과 응답을 단순화하여 응답을 받아온다. 받아온 응답엔 json형식의데  이터가 있는데, 이를 gson통해 자바 객체로 바꿔 그 안에 있는 데이터를 하나씩 꺼내 어댑터에 추가한다. 그 후 어댑터에 리싸이클러뷰의 객체를 설정하여 리스트형식으로 시각화하여 나타내는 프로젝트이다.
  
-이를 시작하기 위해선 웹서버의 요청하고 응답을 단순화시키는 volley라이브러리를 사용한다.
+ <b>프로젝트 구현 </b> 
+ 
+이를 시작하기 위해선 웹서버의 요청하고 응답을 단순화시키는 volley라이브러리를 사용하기 때문에 라이브러리 추가를 꼭해야한다.
 
-Volley를 사용하기 위해서는 Request 객체를 만들어 이 객체를 RequestQueue에 넣으면된다.
+그 후 Volley를 사용하여 요청과 응답을 받기 위해서는 Request 객체를 만들어 이 객체를 RequestQueue에 넣는다.
 
-그 후 MovieList , MovieListResult ,Movie 클래스를 만든다. 이때 Movie 클래스 안에는 JSON문자열 형식에 영화정보를  입력한다.
+정보를 담을 클래스들을 만든다. < MovieList , MovieListResult ,Movie > 이때 Movie 클래스 안에는 JSON문자열 형식에 영화정보를  입력한다.
 
-<b>실제MovieList클래스에 적은 문자열</b>
+<b>실제MovieList클래스에 적은 코드</b>
 
 <img width="300" height="150" src="./Png/movielist.png"></img>
 
 객체를 반환할 클래스로 만든 MovieList 안에 boxofficeResult라는 변수를 추가한다. 이때 주의할 점은 JSON문자열에서 속성의 이름과 같아야 한다.
-MovieListResult는 boxofficeResult를 담아둘 클래스를 정의한 것
+[MovieListResult는 boxofficeResult를 담아둘 클래스를 정의한 것]
 
-<b>실제MovieListResult클래스에 적은 문자열</b>
+<b>실제MovieListResult클래스에 적은 코드</b>
 
 <img width="300" height="150" src="./Png/movielisr.png"></img>
 
  위에서 만든  boxofficeResult를 담아두기 위해 만든 MovieListResult안에는 배열안에 객체들이 들어가는 경우 해당 객체들을 위한 클래스로 ArrayList를 만든다.
 
-<b>실제Movie클래스에 적은 문자열</b>
+<b>실제Movie클래스에 적은 코드</b>
 
 <img width="250" height="455" src="./Png/1234.png"></img>
 
 Movie 클래스에서는 JSON문자열 형식의 영화정보를 입력한다.
+
+<b>실제MovieAdaptet 클래스에 적은 코드</b>
+
+<img width="350" height="500" src="./Png/adapter.png"></img>
 
 마지막으로 Movie의 객체를 관리하기 위하여 MovieAdaptet 클래스를 만들고 그 안에 ViewHoler 클래스를 static으로 정의한다. 이때  ViewHoler에 movie 객체가 담기게 된다. 여기서 textviw 또한 생성 한다. 
 
