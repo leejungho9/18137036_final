@@ -22,28 +22,33 @@ Daily Box Office TOP10
  
  <b>프로젝트 구현 </b> 
  
-이를 시작하기 위해선 웹서버의 요청하고 응답받을 때 volley를 사용하기 때문에 volley라이브러리 추가를 꼭해야한다.
-그 후 Volley를 사용하여 요청과 응답을 받기 위해서는 Request 객체를 만들어 이 객체를 RequestQueue에 넣는다.
-정보를 담을 클래스들을 만든다. < MovieList , MovieListResult ,Movie > 이때 Movie 클래스 안에는 JSON문자열 형식에 영화정보를  입력한다.
+이를 시작하기 위해선 웹서버에 요청하고 응답받을 때 volley를 사용하기 때문에 volley라이브러리 추가를 꼭해야한다. 추가 후 응답을 받기 위해서는 Request 객체를 만들어 이 객체를 RequestQueue에 넣어주면 큐가 알아서 웹서버에 요청하고 응답까지 받아준다.
+
+
+
+이 후 웹 응답으로 받은Json 결과물을 처리하기 위해 gson을 라이브러리에 추가해야한다.  이때 gson은 JSON문자열을 자바 객체로 만들어 그 안에 있는 데이터를 사용할 수 있게 해준다.
+하지만 JSON을 자바 객체로 바꿀 때도 클래스를 정의해야 한다. 이때 생성한 클래스를 MovieList로 정한다.
 
 <b>실제MovieList클래스에 적은 코드</b>
 
 <img width="300" height="150" src="./Png/movielist.png"></img>
 
-객체를 반환할 클래스로 만든 MovieList 안에 boxofficeResult라는 변수를 추가한다. 이때 주의할 점은 JSON문자열에서 속성의 이름과 같아야 한다.
+MovieList 안에 boxofficeResult라는 변수를 선언해야한다. 이때 주의할 점은 JSON문자열에서 속성의 이름과 같아야 한다.
 [MovieListResult는 boxofficeResult를 담아둘 클래스를 정의한 것]
 
 <b>실제MovieListResult클래스에 적은 코드</b>
 
 <img width="300" height="150" src="./Png/movielisr.png"></img>
 
- 위에서 만든  boxofficeResult를 담아두기 위해 만든 MovieListResult안에는 배열안에 객체들이 들어가는 경우 해당 객체들을 위한 클래스로 ArrayList를 만든다.
+ 위에서 만든  boxofficeResult를 담아두기 위해 만든 MovieListResult안에는 배열 안에 다시 객체들이 들어가는 경우를 해당 객체들을 위한 클래스로 ArrayList까지 만든다.
 
 <b>실제Movie클래스에 적은 코드</b>
 
 <img width="250" height="455" src="./Png/1234.png"></img>
 
-Movie 클래스에서는 JSON문자열 형식의 영화정보를 입력한다.
+마지막 Movie 클래스에서는 JSON문자열 형식의 영화정보를 입력해야한다. 
+
+이제 이것들을 화면에 리스트 모양으로 보여주기 위해서는 activity_main.xml 파일에 recyclerview를 추가한다.
 
 <b>실제MovieAdaptet 클래스에 적은 코드</b>
 
