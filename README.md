@@ -7,13 +7,23 @@ Daily Box Office TOP10
 ## 전체적인 프로젝트 구현 
 
 
-영화의 정보를 가지고있는 JSON형식의 오픈API URL과 Key를 받아 웹서버에 요청한다.
+영화의 일일 박스오피스 순위의 정보를 가지고있는 JSON형식의 오픈API URL과 Key를 받아 웹서버에 요청한다.
 
 <b>JSON형식의 데이터 이미지</b>
 <img width="1000" height="50" src="./Png/JSON1.png"></img>
 
-요청하기버튼을 클릭 시, 입력한 날짜에 맞춰 박스오피스순위와 정보를 리싸이클러뷰에 표시된다.
+웹서버에 URL을 입력하고 요청하기 버튼을 클릭하면 입력한 날짜에 맞춰 박스오피스순위와 정보를 리싸이클러뷰에 표시된다.
+
+이때 웹서버에 요청하고 응답을 받을 때 단순화하기 위해 volley라이브러리를 사용하는데 Volley를 사용하기 위해서는 Request 객체를 만들어 이 객체를 RequestQueue에 넣으면된다.
+
+그 후에는 MovieList , MovieListResult ,Movie 클래스를 만든다.이때 movie 클래스 안에는  JSON문자열 형식에 영화정보를  입력한다.
+
+<img width="250" height="455" src="./Png/1234.png"></img>
+
 왼쪽에는 팝콘이미지 그 옆으로는 순위, 영화제목, 개봉일, 일별 관람객 수, 누적 관람객 수, 홈페이지바로가기 버튼, 최신 상영작 페이지를 볼 수 있는 버튼이 나타난다.
+
+
+## 응용한 부분
 
 
 ### RecyclerView , caraView  구현
@@ -79,7 +89,7 @@ button1은 kobis mobile 페이지로, button2는 kobis mobile 최신상영작 �
 
 
 
-# 디자인
+## 디자인
 
 1.웹 요청 화면 
 
@@ -89,7 +99,7 @@ button1은 kobis mobile 페이지로, button2는 kobis mobile 최신상영작 �
 
 <img width="500" height="280" src="./Png/design1.png"></img>
 
-# 결과 화면
+## 결과 화면
 
 <img width="250" height="455" src="./Png/b.png"></img>
 <img width="250" height="455" src="./Png/c.png"></img>
