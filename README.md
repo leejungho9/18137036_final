@@ -18,22 +18,21 @@ Daily Box Office TOP10
    
  <b>프로젝트 구현 전, 요약</b>
 
-전체 프로젝트를 요약하면 , OpenAPi url을 입력상자에 넣고 요청하기 버튼을 클릭하면 웹서버가 요청되는데 이때 Volley가 요청과 응답을 단순화하여 받아온다. 받아온 응답은 json형식의 데이터이기 때문에 이를 gson통해 자바 객체로 바꿔 그 안에 있는 데이터를 하나씩 꺼내 어댑터에 추가한다. 그 후 어댑터에 리싸이클러뷰 객체를 설정하여 리스트형식으로 시각화하여 박스오피스 정보를 나타내는 프로젝트이다.
+전체 프로젝트를 요약하면 , OpenAPI url을 입력상자에 넣고 요청하기 버튼을 클릭하면 웹 서버가 요청되는데, 이때 Volley가 요청과 응답을 단순화하여 받아온다. 받아온 응답은 JSON형식의 데이터이기 때문에 이를 gson통해 자바 객체로 바꿔 그 안에 있는 데이터를 하나씩 꺼내 어댑터에 추가한다. 그 후 어댑터에 리싸이클러뷰 객체를 설정하고 리스트형식으로 시각화하여 박스오피스 정보를 나타내는 프로젝트이다.
  
  <b>프로젝트 구현 시작 </b> 
  
-이를 시작하기 위해선 웹서버에 요청하고 응답받을 때 volley를 사용하기 때문에 volley라이브러리 추가를 꼭 해야한다. 추가 후 응답을 받기 위해서는 Request 객체를 만들어 이 객체를 RequestQueue에 넣어주면 큐가 알아서 웹서버에 요청하고 응답까지 받아준다.
+이를 시작하기 위해 웹서버에 요청하고 응답받을 때 volley를 사용하기 때문에 라이브러리 꼭 추가해야된다. 추가 후 응답을 받기 위해서는 Request 객체를 만들고 RequestQueue에 넣어주면 큐가 알아서 웹서버에 요청하고 응답까지 받아준다.
 
 
 
-이 후 웹 응답으로 받은Json 결과물을 처리하기 위해 gson을 라이브러리에 추가한다.  이때 gson은 JSON문자열을 자바 객체로 만들어 그 안에 있는 데이터를 사용할 수 있게 해준다.
-하지만 JSON을 자바 객체로 바꿀 때도 클래스를 정의해야 하기 때문에 MovieList 클래스를 만들어준다.
-
+이 후 웹 응답으로 받은 JSON 결과물을 처리하기 위해 gson을 라이브러리에 추가하고 JSON을 자바 객체로 바꿀 때도 클래스를 정의해야 하기 때문에 MovieList 클래스를 만들어준다.
+( gson은 JSON문자열을 자바 객체로 만들어 그 안에 있는 데이터를 사용할 수 있게 해준다.)
 <b>[실제MovieList클래스에 적은 코드]</b>
 
 <img width="300" height="150" src="./Png/movielist.png"></img>
 
-MovieList 안에 boxofficeResult라는 변수를 선언해야한다. 이때 주의할 점은 JSON문자열에서 속성의 이름과 같아야 한다.
+MovieList 안에 boxofficeResult라는 변수를 선언해야한다. 이때 주의할 점은 JSON문자열에서의 속성과 같아야 한다.
 [MovieListResult는 boxofficeResult를 담아둘 클래스를 정의한 것]
 
 <b>[실제MovieListResult클래스에 적은 코드]</b>
@@ -55,10 +54,10 @@ MovieList 안에 boxofficeResult라는 변수를 선언해야한다. 이때 주�
 
 <img width="400" height="500" src="./Png/adapter.png"></img>
 
-클래스를 만들었으면 그 안에 ViewHoler 클래스를 static으로 정의하고 리스트 형태로 보일 때 item은 view로 만들어지며 각각의 item은 ViewHoler에 담기게 된다.
-결국 ViewHoler안에는 Movie의 객체들이 담기게 되므로 setItem()메서드로 객체를 전달한다.
+클래스를 만들었으면 그 안에 ViewHoler 클래스를 static으로 정의하고 리스트 형태로 보일 때 item은 view로 만들어지고 각각의 item은 ViewHolder에 담기게 된다.
+결국ViewHolder안에는 Movie의 객체들이 담기게 되며 setItem()메서드의 파라미터로 Movie 객체를 전달한다.
 
-ViewHole에 넣어 줄 뷰 객체의 XML 레이아웃은 movie_item 이라고 정하고 보여지게 할 화면을 cardview 사용하여 만든다.
+ViewHolder에 넣어 줄 뷰 객체의 XML 레이아웃은 movie_item 이라고 정하고 보여질 할 화면을 cardview를 사용하여 만든다.
 
 <b>[실제 movie_item.xml cardview 코드]</b>
 
@@ -74,31 +73,31 @@ cardView는 layout_margin 값을 주어 테두리가 띄어지게 만들 수 있
 
 <img width="600" height="150" src="./Png/4444.png"></img>
 
-리싸이클러뷰를 위한 어댑터가 만들어졌으면 이 어댑터를 리싸이클러뷰 객체에 설정하고 그 아래에 MovieAdapter 객체를 만들고 setAdapter()를 호출하도록 설정하면recyclerview와 adater가 상호작용하면서 리스트모양으로 보여준다.
+리싸이클러뷰를 위한 어댑터가 만들어졌으면 이 어댑터를 리싸이클러뷰 객체에 설정하고 그 아래에 MovieAdapter 객체를 만들어 setAdapter()를 호출하도록 설정하면recyclerview와 adater가 상호작용하면서 리스트모양으로 보여준다.
 
-마지막으로 요청하기를 눌렀을 때 리싸이클러뷰에 보여주는 과정으로 onCreate() 메서드 안에 imagebutton과 Listener 를 추가하고 Volley의  RequestQueue  생성하는 코드를 추가히거 메서드들을 순서대로 정의한다.
+마지막으로 요청하기를 눌렀을 때 리싸이클러뷰에 보여지는 과정으로 onCreate() 메서드 안에 imagebutton과 Listener를 추가하고 Volley의 RequestQueue 객체를 생성하는 코드를 추가한다.
 
 <b>[실제 MainActivity processResponse 코드]</b>
 
 <img width="450" height="300" src="./Png/response.png"></img>
 
-그 후 사용자가 버튼을 눌러 응답을 받으면 OnResponse()메서드 안에서 processResponse() 메서드를 호출하고 processResponse() 메서드 안에서는 Gson을 이용해 Json 문자열을 MovieList 객체로 변환하여 그 안에 들어있는 객체를 Movie 객체들을 하나씩 꺼내어 어댑터에 추가한다. 어댑터를 모두 추가했다면 마지막 줄에 있는 notifyDataSetChanged()메서드를 호출해야 변경 사항이 반영된다.
+그 후 사용자가 버튼을 눌러 응답을 받았을 때 호출되는 OnResponse()메서드 안에서는 processResponse() 메서드를 호출한다. 이 메서드 안에서는 Gson을 이용해 Json 문자열을 MovieList 객체로 변환하며 그 안에 들어있는 Movie 객체들을 하나씩 꺼내어 어댑터에 추가한다. 어댑터를 모두 추가했다면 마지막 줄에 있는 notifyDataSetChanged()메서드를 호출해야 변경 사항이 반영된다.
 
 
 ## 응용한 부분
 
 
-### RecyclerView , caraView  구현
+### RecyclerView , cardView  구현
 
-activity_main.xml RecyclerView를 화면에 끌어와 사용 가능하다. + caraView 도 같은 방법
+activity_main.xml RecyclerView를 화면으로 끌어와 사용 가능하다. + cardView 도 같은 방법
 
 ### 중복 LinearLayout구현
 
-중복 레이아웃이아웃은 하나의 레이아웃 안에 레이아웃을 여러개 만드는 걸 말한다. 프로젝트 안에 있는 movie_item 레이아웃에서 사용된 LinearLayout만으로도 총 6개로 중복 레이아웃을 통해서 수평 수직 배열의 형태로 지정했다.
+중복 LinearLayout은 하나의 레이아웃 안에 레이아웃을 여러개 만드는 것을 말한다. 프로젝트 안에 있는 movie_item 레이아웃에서 사용된 LinearLayout만으로도 총 6개로 중복 레이아웃을 통해서 수평 수직 배열의 형태로 지정했다.
 
 ### TextView구현 
 
- activity_main 과 movie_item 레이아웃 합쳐서 사용된 TextView만 총6가지다. 프로젝트 명, 영화순위, 영화제목, 개봉일, 일별 관람객 수, 누적 관람객 수를 보여주도록 만들었는데 프로젝트 명을 제외한 나머지는 ViewHoler안에 담긴 Movie의 객체들을 메서드로 전달받아 TextView로 표시를 해주는 방식으로 화면에 구현 하기 위해서는 MovieAdapter.java 페이지에서 작성하며 findViewById(R.id.textview); 코드를 입력해 xml과 연결시켜줘야한다. [위에 MovieAdapter.java코드 참고]
+ activity_main 과 movie_item 레이아웃을 합쳐서 사용된 TextView만 총 6개다. 프로젝트 명, 영화순위, 영화제목, 개봉일, 일별 관람객 수, 누적 관람객 수를 보여지도록 만들었는데 프로젝트 명을 제외한 나머지는 ViewHolder안에 담긴 Movie의 객체들을 메서드를 전달받아 TextView로 표시를 해주는 방식으로 화면에 구현 하기 위해서는 MovieAdapter.java 페이지에서 작성하며 findViewById(R.id.textview); 코드를 입력해 xml과 연결시킨다. [위에 MovieAdapter.java코드 참고]
 
 <b>TextView 꾸미기</b>
 
@@ -106,7 +105,7 @@ activity_main.xml RecyclerView를 화면에 끌어와 사용 가능하다. + car
 
 >2)android:textColor="#E10B0B"
 
-textStyle과 textColor 를 활용해 text를 꾸며 줄 수 있다. 
+textStyle과 textColor를 활용하여 text를 꾸며 줄 수 있다. 
 
 ### Button으로 웹페이지 이동 구현
 
@@ -116,7 +115,7 @@ textStyle과 textColor 를 활용해 text를 꾸며 줄 수 있다.
    startActivity(myIntent);}
 
  movie_item 레이아웃에 들어간 버튼 두 개의 역할은 웹페이지 이동에 목적을 두고있다.
-button1은 kobis mobile 페이지로, button2는 kobis mobile 최신상영작 페이지로 이동하는데 구현하는 방법은 OnClick 함수를 지정하는 것이다. 프로그램에서 button1의 OnClick  함수는 B1 로, button2의 OnClick 함수는 B2로 지정했다. 그 후 MainActivity로 이동해 button1의 OnClick의 함수인 B1을 호출하고 Intent 함수를 myIntent로 불러오는 위와 같은 코드를 작성한다. button2도 같은 방법으로 작성 가능하다.( 단, button2의 함수는 B2 !)
+button1은 kobis mobile 페이지로, button2는 kobis mobile 최신상영작 페이지로 이동하는데 구현하는 방법은 OnClick 함수를 지정하는 것이다. 프로그램에서 button1의 OnClick  함수는 B1 으로, button2의 OnClick 함수는 B2로 지정했다. 그 후 MainActivity로 이동해 button1의 OnClick의 함수인 B1을 호출하고 Intent 함수를 myIntent로 불러오는 위와 같은 코드를 작성한다. button2도 같은 방법으로 작성 가능하다.( 단, button2의 함수는 B2 !)
 
 ### imeageView 구현
 
@@ -126,7 +125,7 @@ button1은 kobis mobile 페이지로, button2는 kobis mobile 최신상영작 �
 
 ### imeagebutton 구현
 
-이 이미지버튼을 눌렀을 때 입력상자에 입력한 사이트 주소로 웹 요청을 해야하므로 MainActivity.java 파일에서 onCreate() 메서드안에 ImageButton과 setOnClickListener를 추가하여 volley의 RequestQueue 객체를 생성하는 코드를 작성후 makeRequest(), println(),processResponse() 메서드를 정의해준다.
+이미지버튼을 눌렀을 때 입력상자에 입력한 사이트 주소로 웹 요청을 해야하므로 MainActivity.java 파일에서 onCreate() 메서드안에 ImageButton과 setOnClickListener를 추가하여 volley의 RequestQueue 객체를 생성하는 코드를 작성후 makeRequest(), println(),processResponse() 메서드를 정의해준다.
 
 
 - ### 주의 할 점
@@ -152,7 +151,7 @@ button1은 kobis mobile 페이지로, button2는 kobis mobile 최신상영작 �
 
 
 
-## 위에 내용을 응용하여 바뀐 디자인
+## 위에 내용을 응용한 새로운 디자인
 
 <b>1.웹 요청 화면 </b>
 
@@ -161,9 +160,9 @@ button1은 kobis mobile 페이지로, button2는 kobis mobile 최신상영작 �
 <img width="250" height="455" src="./Png/777.png"></img>
 <img width="250" height="455" src="./Png/design2.png"></img>
 
-이 프로젝트 이름인 Daily Box Office TOP10 맨 위 상단에 textview로 나타내고 기존에 자리를 많이 차지했던 요청하기 버튼을 imageButton으로 바꿔 돋보기 모양으로 깔끔하게 표현했다.
+이 프로젝트 이름인 Daily Box Office TOP10을 맨 위 상단에 textview로 나타내고 기존에 자리를 많이 차지했던 요청하기 버튼을 돋보기 모양으로 된 imageButton으로 깔끔하게 표현했다.
 
-<b>2.정보 시각화 화면</b>
+<b>2.영화 정보를 시각화 한 화면</b>
 
 <b>(위) 기존 화면  (아래) 변경 화면</b>
 
@@ -171,7 +170,7 @@ button1은 kobis mobile 페이지로, button2는 kobis mobile 최신상영작 �
 
 <img width="500" height="280" src="./Png/design1.png"></img>
 
-기존에는 영화의 제목과 관객수만 보이는 단순한 구조였다면 , 순위,  개봉일을 추가하고 일별 관람객과 누적 관람객으로 나눠 표시하도록 만들었다. 
+기존에는 영화의 제목과 관객수만 보이는 단순한 구조였지만 순위와 개봉일을 추가하고 일별 관람객과 누적 관람객으로 나눠 표시하도록 만들었다. 
 그 후 모바일 홈페이지와 최신상영작페이지로 바로갈 수 있는 버튼 두 개를 만들어 사용자들이 더욱 편리하게 이용 가능하도록 만들었다.
 
 ## 결과 화면
