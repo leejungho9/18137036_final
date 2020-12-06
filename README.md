@@ -77,7 +77,7 @@ cardView는 layout_margin 값을 주어 테두리가 띄어지게 만든다.
 
 <b>[실제 MainActivity에 적은 코드]</b>
 
-<img width="500" height="200" src="./Png/1010.png"></img>
+<img width="500" height="300" src="./Png/1010.png"></img>
 
 이 후에 버튼을 눌렀을 때 입력상자에 입력한 사이트 주소로 웹 요청을 하도록 MainActivity에서 파일 수정을 해야 한다. onCreate() 메서드 안에 imagebutton과 Listener를 추가하고 Volley의 RequestQueue 객체를 생성하는 코드를 추가한다.
 
